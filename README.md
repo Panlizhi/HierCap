@@ -1,4 +1,4 @@
-# Hierarchical Encoder-decoder for Image Captioning (HeriCap)
+# Hierarchical Encoder-decoder for Image Captioning
 
 ## Introduction
 The official repository for “Hierarchical Encoder-decoder for Image Captioning (HeriCap)”.
