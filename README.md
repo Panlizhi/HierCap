@@ -1,7 +1,7 @@
 # Hierarchical Encoder-decoder for Image Captioning (HeriCap)
 
 ## Introduction
-The official repository for “HeriCap”.
+The official repository for “Hierarchical Encoder-decoder for Image Captioning (HeriCap)”.
 
 HeriCap is a model to  .
 
