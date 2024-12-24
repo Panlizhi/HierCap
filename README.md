@@ -66,11 +66,9 @@ python eval.py
 </p>
 
 
-## Acknowledgements
-- Thanks the [meshed-memory-transformer](https://github.com/aimagelab/meshed-memory-transformer).
-- Thanks the amazing work of [grit](https://github.com/davidnvq/grit). 
-
 ## Citations
 ```
 ```
 
+## Acknowledgement
+This code and our experiments are conducted based on the release code of [Swin Transformer](https://github.com/microsoft/Swin-Transformer) / [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR) / [M2-Transformer](https://github.com/aimagelab/meshed-memory-transformer) / [grit](https://github.com/davidnvq/grit) / [PureT](https://github.com/232525/PureT/tree/main) . Here we thank for their remarkable works.
