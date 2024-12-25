@@ -30,14 +30,35 @@ Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-
 * **evaluation**.
 * SPICE score are calculate by [coco-caption](https://github.com/tylin/coco-caption) tool.
 
+```python
+---hericap
+|
+------
+---
+---
+---------
+
+```
 
 ## Training
 ```python
-python train.py  
+export DATA_ROOT=/gemini/data-1/COCO2014
+python train_caption.py exp.name=caption_finetune_region_c4 \
+    model.detector.checkpoint=/gemini/pretrain/region_ckpt_c4.pth \
+    optimizer.finetune_xe_epochs=10 \
+    optimizer.finetune_sc_epochs=10 \
+    optimizer.batch_size=32 \
+    optimizer.num_workers=4 \
+    exp.ngpus_per_node=8 \
+    exp.world_size=8 \
+    model.cap_generator.decoder_name=Parallel \
+    dataset.overfit=False 
 ```
+
 ## Evaluation
 ```python
-python eval.py  
+export DATA_ROOT=/gemini/data-1/COCO2014
+python eval_caption.py  split='test' exp.checkpoint=/gemini/pretrain/hericap_ckpt_best_c4.pth
 ```
 
 ## Performance
