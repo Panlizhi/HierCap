@@ -31,20 +31,26 @@ Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-
 * SPICE score are calculate by [coco-caption](https://github.com/tylin/coco-caption) tool.
 
 ```python
----hericap
-|---
-|---
----data-1
-|------COCO2014
-|------nocap
-|------flickr8K
-|------flickr30K
----pretrain
-|------region_ckpt_c4.pth
-|------hericap_ckpt_best_c4.pth
+path/to/hericap
+├─── configs
+├─── ....
+└─── readme.md
+path/to/dataset/
+├───COCO2014/
+        ├── annotations/  # annotation json files and Karapthy files
+        ├── train2014/    # train images
+        ├── val2014/      # val images
+        └── test2014/     # test images
+├───nocap
+├───flickr8K
+└───flickr30K
+path/to/pretrain
+|───region_ckpt_c4.pth
+└───hericap_ckpt_best_c4.pth
 ```
 
 ## Training
+We train hericap on 8 GPU A100 (80GB) in DDP mode by:
 ```python
 export DATA_ROOT=/gemini/data-1/COCO2014
 python train_caption.py exp.name=caption_finetune_region_c4 \
