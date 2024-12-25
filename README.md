@@ -32,12 +32,16 @@ Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-
 
 ```python
 ---hericap
-|
-------
----
----
----------
-
+|---
+|---
+---data-1
+|------COCO2014
+|------nocap
+|------flickr8K
+|------flickr30K
+---pretrain
+|------region_ckpt_c4.pth
+|------hericap_ckpt_best_c4.pth
 ```
 
 ## Training
