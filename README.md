@@ -27,7 +27,8 @@ Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-
 ## Data preparation
 * **Annotation**.
 * **Feature**. 
-* **evaluation**. 
+* **evaluation**.
+* SPICE score are calculate by [coco-caption](https://github.com/tylin/coco-caption) tool.
 
 
 ## Training
