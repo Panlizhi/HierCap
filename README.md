@@ -28,7 +28,7 @@ Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-
 * **Annotation**.
 * **Feature**. 
 * **evaluation**.
-* SPICE score are calculate by [coco-caption](https://github.com/tylin/coco-caption) tool.
+* Evaluation score are calculate by [coco-caption](https://github.com/tylin/coco-caption) tool.
 
 ```python
 path/to/hericap
