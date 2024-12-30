@@ -45,16 +45,16 @@ path/to/dataset/
 ├───flickr8K
 └───flickr30K
 path/to/pretrain
-|───region_ckpt_c4.pth
-└───hericap_ckpt_best_c4.pth
+|───region_ckpt.pth
+└───hericap_ckpt_best.pth
 ```
 
 ## Training
 We train hericap on 8 GPU A100 (80GB) in DDP mode by:
 ```python
 export DATA_ROOT=/gemini/data-1/COCO2014
-python train_caption.py exp.name=caption_finetune_region_c4 \
-    model.detector.checkpoint=/gemini/pretrain/region_ckpt_c4.pth \
+python train_caption.py exp.name=caption_finetune_region \
+    model.detector.checkpoint=/gemini/pretrain/region_ckpt.pth \
     optimizer.finetune_xe_epochs=10 \
     optimizer.finetune_sc_epochs=10 \
     optimizer.batch_size=32 \
@@ -68,7 +68,7 @@ python train_caption.py exp.name=caption_finetune_region_c4 \
 ## Evaluation
 ```python
 export DATA_ROOT=/gemini/data-1/COCO2014
-python eval_caption.py  split='test' exp.checkpoint=/gemini/pretrain/hericap_ckpt_best_c4.pth
+python eval_caption.py  split='test' exp.checkpoint=/gemini/pretrain/hericap_ckpt_best.pth
 ```
 
 ## Performance
