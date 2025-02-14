@@ -6,13 +6,13 @@ The official repository for “Hierarchical Encoder-decoder for Image Captioning
 HeriCap is a model to  .
 
 <p align="center">
-    <img src="img/overview.png" width="95%"> <br>
+    <img src="hericap/images/intro.png" width="95%"> <br>
     The framework of the proposed Dynamic Transformer Network (DTNet) 
 </p>
 
 
 <p align="center">
-    <img src="img/cell.png" width="95%"> <br>
+    <img src="hericap/images/main.png" width="95%"> <br>
     The detailed architectures of different cells in the spatial and channel routing space.
 </p>
 
