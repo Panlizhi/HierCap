@@ -1,0 +1,102 @@
+exp:
+  seed: 666 
+  name: ''  #eval
+  rank: 0
+  ngpus_per_node: 1  
+  world_size: 1  
+  checkpoint: ''
+  eval: False
+  resume: False
+  start_epoch: 0 # for debug
+
+dataset:
+  overfit: False   
+  ann_root: '${oc.env:DATA_ROOT}/annotations'
+  img_root: '${oc.env:DATA_ROOT}'
+  hdf5_path: ''  # this is used for freezed extractor; fast to train.   hdf5_path=/gemini/output
+  vocab_path: '${oc.env:DATA_ROOT}/annotations/vocab.json'
+  use_gri_feat: ${model.use_gri_feat}
+  use_reg_feat: ${model.use_reg_feat}
+  use_glob_feat: ${model.use_glob_feat}
+
+  transform_cfg:
+    size: [384, 640] # (h, w)
+    resize_name: maxwh # normal, minmax, maxwh; maxwh is computationally friendly for training
+    randaug: True  
+
+
+model:
+  use_gri_feat: True
+  use_reg_feat: True
+  use_glob_feat: True # True
+  grid_feat_dim: 1024
+  glob_feat_dim: 1024
+  frozen_stages: 2
+  beam_size: 5
+  beam_len: 20
+  dropout: 0.2
+  attn_dropout: 0.2
+
+  vocab_size: 10201
+  max_len: 54
+  pad_idx: 1
+  bos_idx: 2
+  eos_idx: 3
+  d_model: 512
+  n_heads: 8
+
+  glob_net:
+    n_layers: 3
+
+  grid_net:
+    n_memories: 1
+    n_layers: 3
+
+  cap_generator:
+    decoder_name: Parallel  # 'Concatenated_Sequential', 'Parallel', 'Sequential', 'Concatenated_Parallel'
+    n_layers: 3
+
+  detector: 
+    checkpoint: '' 
+    d_model: 512
+    dim_feedforward: 1024
+    num_heads: 8
+    num_layers: 6
+    num_levels: 4
+    num_points: 4
+    num_queries: 150   # Deformable-DETR
+    num_classes: 1849
+    dropout: 0.1
+    activation: 'relu'
+    return_intermediate: True
+    with_box_refine: True
+
+
+optimizer:
+  warmup_init_lr: 1e-5
+  min_lr: 1e-4
+  xe_lr: 1e-4          
+  sc_lr: 5e-6          
+  xe_backbone_lr: 1e-5   
+  sc_backbone_lr: 5e-6   
+  weight_decay: 0.01
+  beta_1: 0.9
+  beta_2: 0.99
+  batch_size: 16 # 16
+  num_workers: 2
+  freezing_xe_epochs: 0
+  freezing_sc_epochs: 0
+  finetune_xe_epochs: 0
+  finetune_sc_epochs: 0
+  freeze_detector: False
+  freeze_backbone: False
+
+hydra:
+  run:
+    dir: ${oc.env:OUTPUT_ROOT}/${exp.name}
+  output_subdir: ${oc.env:OUTPUT_ROOT} # directory for saving the yaml configs
+  job:
+    config:
+      override_dirname:
+        exclude_keys:
+          - exp.name
