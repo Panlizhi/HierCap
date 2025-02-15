@@ -25,14 +25,15 @@ levels: global (encompassing positional relationships), regional
 
 ## Environment setup
 
-Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-memory-transformer)
+Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-memory-transformer).
 
 ## Data preparation
-* **Annotation**.
-* **Feature**. 
-* **evaluation**.
+* **Annotation**:
+* Download and extract COCO 2014 for image captioning including train, val, and test images with annotations from [MSCOCO](http://cocodataset.org).
+* **Evaluation**:
 * Evaluation score are calculate by [coco-caption](https://github.com/tylin/coco-caption) tool.
 
+* **File list**:
 ```python
 path/to/hericap
 ├─── configs
@@ -99,6 +100,7 @@ The inference on a RGB Image in [inference_example](https://github.com/Panlizhi/
 
 ## Citations
 ```
+This work is currently under submission.
 ```
 
 ## Acknowledgement
