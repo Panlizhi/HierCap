@@ -3,7 +3,9 @@
 ## Introduction
 The official repository for “Hierarchical Encoder-decoder for Image Captioning (HeriCap)”.
 
-HeriCap is a model to  .
+HeriCap is a model to guide text generation with hierarchical visual information at three
+levels: global (encompassing positional relationships), regional
+(highlighting principal objects), and grid (capturing local details).
 
 <p align="center">
     <img src="hericap/images/intro.png" width="80%"> <br>
@@ -71,6 +73,11 @@ python train_caption.py exp.name=caption_finetune_region \
 export DATA_ROOT=/gemini/data-1/COCO2014
 python eval_caption.py  split='test' exp.checkpoint=/gemini/pretrain/hericap_ckpt_best.pth
 ```
+
+## Inference
+The inference on a RGB Image in [inference_example](https://github.com/Panlizhi/HierCap/blob/main/hericap/inference_captions.ipynb).
+
+
 
 ## Performance
 
