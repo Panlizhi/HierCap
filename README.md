@@ -19,7 +19,7 @@ levels: global (encompassing positional relationships), regional
 </p>
 
 ## News
-
+- 2025.02.19: Paper submitted.
 - 2025.02.14: Released code.
 - 2024.12.24: Build project.
 
