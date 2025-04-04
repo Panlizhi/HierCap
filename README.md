@@ -1,9 +1,9 @@
 # Hierarchical Encoder-decoder for Image Captioning
 
 ## Introduction
-The official repository for “Hierarchical Encoder-decoder for Image Captioning (HeriCap)”.
+The official repository for “Hierarchical Encoder-decoder for Image Captioning (HierCap)”.
 
-HeriCap is a model to guide text generation with hierarchical visual information at three
+HierCap is a model to guide text generation with hierarchical visual information at three
 levels: global (encompassing positional relationships), regional
 (highlighting principal objects), and grid (capturing local details).
 
@@ -35,7 +35,7 @@ Please refer to [meshed-memory-transformer](https://github.com/aimagelab/meshed-
 
 * **File list**:
 ```python
-path/to/hericap
+path/to/hiercap
 ├─── configs
 ├─── ....
 └─── readme.md
@@ -50,11 +50,11 @@ path/to/dataset/
 └───flickr30K
 path/to/pretrain
 |───region_ckpt.pth
-└───hericap_ckpt_best.pth
+└───hiercap_ckpt_best.pth
 ```
 
 ## Training
-We train hericap on 8 GPU A100 (80GB) in DDP mode by:
+We train hiercap on 8 GPU A100 (80GB) in DDP mode by:
 ```python
 export DATA_ROOT=/gemini/data-1/COCO2014
 python train_caption.py exp.name=caption_finetune_region \
@@ -72,7 +72,7 @@ python train_caption.py exp.name=caption_finetune_region \
 ## Evaluation
 ```python
 export DATA_ROOT=/gemini/data-1/COCO2014
-python eval_caption.py  split='test' exp.checkpoint=/gemini/pretrain/hericap_ckpt_best.pth
+python eval_caption.py  split='test' exp.checkpoint=/gemini/pretrain/hiercap_ckpt_best.pth
 ```
 
 ## Inference
