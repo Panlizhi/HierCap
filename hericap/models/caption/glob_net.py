@@ -29,7 +29,7 @@ class Global_Relation_Attention(nn.Module):
 		# print ('Use_Spatial_Att: {};\tUse_Channel_Att: {}.'.format(self.use_spatial, self.use_channel))
 
 		self.inter_channel = in_channel // cha_ratio  # 512//4 = 128
-		self.inter_spatial = in_spatial // spa_ratio  # 60//8 = 7
+		self.inter_spatial = in_spatial // spa_ratio  # 60//4 = 15
 		
 
 		if self.use_spatial:
@@ -96,13 +96,13 @@ class Global_Relation_Attention(nn.Module):
 			Gs_out = Glob_spa.view(b, h*w, h, w)                  
 			Gs_joint = torch.cat((Gs_in, Gs_out), 1)              #  [b, hw + hw, h, w]
 			# Relation Feature R
-			Gs_joint = self.gg_spatial(Gs_joint)                  #  [b, 128, h, w]   denote the embedding functions for  the global relations 
+			Gs_joint = self.gg_spatial(Gs_joint)                  #  [b, hw/sigma, h, w]   denote the embedding functions for  the global relations 
 		
 			g_xs = self.gx_spatial(x)                      # [b,128,h,w]<---[b,c,h,w]  denote the embedding functions for the feature itself 
 			g_xs = torch.mean(g_xs, dim=1, keepdim=True)   # [b,1,h,w]<---[b,128,h,w]  denotes global average pooling operation along the channel dimension to further reduce the dimension to be 1.
-			ys = torch.cat((g_xs, Gs_joint), 1)            # [b,129,h,w]
+			ys = torch.cat((g_xs, Gs_joint), 1)            # [b, hw/sigma+1, h,w]
 
-			W_ys = self.W_spatial(ys)                      # [b,1,h,w] <--- [b,8(=129//8),h,w] <---[b,129,h,w]
+			W_ys = self.W_spatial(ys)                      # [b,1,h,w] <--- [b,(hw/sigma+1)//2,h,w] <---[b,129,h,w]
 			if not self.use_channel:
 				out = F.sigmoid(W_ys.expand_as(x)) * x     # spatial attention value * feature
 				return out
