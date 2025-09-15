@@ -102,7 +102,7 @@ class Global_Relation_Attention(nn.Module):
 			g_xs = torch.mean(g_xs, dim=1, keepdim=True)   # [b,1,h,w]<---[b,128,h,w]  denotes global average pooling operation along the channel dimension to further reduce the dimension to be 1.
 			ys = torch.cat((g_xs, Gs_joint), 1)            # [b, hw/sigma+1, h,w]
 
-			W_ys = self.W_spatial(ys)                      # [b,1,h,w] <--- [b,(hw/sigma+1)//2,h,w] <---[b,129,h,w]
+			W_ys = self.W_spatial(ys)                      # [b,1,h,w] <--- [b,(hw/sigma+1)//2,h,w] <---[b,(hw/sigma+1),h,w]
 			if not self.use_channel:
 				out = F.sigmoid(W_ys.expand_as(x)) * x     # spatial attention value * feature
 				return out
