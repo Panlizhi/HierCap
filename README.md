@@ -19,6 +19,7 @@ levels: global (encompassing positional relationships), regional
 </p>
 
 ## News
+- 2025.10.15: Paper has been accepted by Neurocomputing.
 - 2025.02.19: Paper submitted.
 - 2025.02.14: Released code.
 - 2024.12.24: Build project.
@@ -100,7 +101,15 @@ The inference on a RGB Image in [inference_example](https://github.com/Panlizhi/
 
 ## Citations
 ```
-This work is currently under submission.
+@article{pan2025hierarchical,
+  title={Hierarchical Encoder-decoder for Image Captioning},
+  author={Lizhi Pan, Chengtian Songa, Xiaozheng Gan, Keyu Xu, Mengqian Deng},
+  journal={Neurocomputing},
+  volume={xxx},
+  pages={xxx},
+  year={2025},
+  publisher={Elsevier}
+}
 ```
 
 ## Acknowledgement
