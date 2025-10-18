@@ -101,14 +101,15 @@ The inference on a RGB Image in [inference_example](https://github.com/Panlizhi/
 
 ## Citations
 ```
-@article{pan2025hierarchical,
-  title={Hierarchical Encoder-decoder for Image Captioning},
-  author={Lizhi Pan, Chengtian Songa, Xiaozheng Gan, Keyu Xu, Mengqian Deng},
-  journal={Neurocomputing},
-  volume={xxx},
-  pages={xxx},
-  year={2025},
-  publisher={Elsevier}
+@article{PAN2025131833,
+title = {Hierarchical encoder-decoder for image captioning},
+journal = {Neurocomputing},
+pages = {131833},
+year = {2025},
+issn = {0925-2312},
+doi = {https://doi.org/10.1016/j.neucom.2025.131833},
+url = {https://www.sciencedirect.com/science/article/pii/S0925231225025056},
+author = {Lizhi Pan and Chengtian Song and Xiaozheng Gan and Keyu Xu and Mengqian Deng},
 }
 ```
 
