@@ -101,11 +101,12 @@ The inference on a RGB Image in [inference_example](https://github.com/Panlizhi/
 
 ## Citations
 ```
-@article{PAN2025131833,
+@article{PAN2026131833,
 title = {Hierarchical encoder-decoder for image captioning},
 journal = {Neurocomputing},
+volume = {660},
 pages = {131833},
-year = {2025},
+year = {2026},
 issn = {0925-2312},
 doi = {https://doi.org/10.1016/j.neucom.2025.131833},
 url = {https://www.sciencedirect.com/science/article/pii/S0925231225025056},
